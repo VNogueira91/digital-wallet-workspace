@@ -98,8 +98,8 @@
       "src": ".",
       "actions": [
         {
-          "type": "execute",
-          "cmd": "rm -rf privatesky"
+          "type": "remove",
+          "target": "privatesky"
         }
       ]
     },
@@ -108,8 +108,8 @@
       "src": ".",
       "actions": [
         {
-          "type": "execute",
-          "cmd": "rm -rf privatesky"
+          "type": "remove",
+          "target": "cardinal"
         }
       ]
     }   

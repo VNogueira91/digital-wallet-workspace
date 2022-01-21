@@ -31,7 +31,7 @@
   ],
   "build": [
     {
-      "name": "privatesky",
+      "name": "build all privatesky",
       "src": ".",
       "actions": [
         {
@@ -71,8 +71,8 @@
       "src": ".",
       "actions": [
         {
-          "type": "execute",
-          "cmd": "rm -rf privatesky"
+          "type": "remove",
+          "path": "privatesky"
         }
       ]
     } 
