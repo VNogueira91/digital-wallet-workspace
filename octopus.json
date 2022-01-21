@@ -1,10 +1,6 @@
 {
     "workDir": ".",
   
-  
-  
-  
-  
     "dependencies": [
       {
         "name": "privatesky",
@@ -84,6 +80,22 @@
             "cmd": "cd themes/blue-fluorite-theme && npm install"
           }
         ]
+      },
+      {
+        "name": "dossier-explorer-wallet-prototype",
+        "src": "https://github.com/PrivateSky/dossier-explorer-wallet-prototype.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "8ccb66adb594da6571bb5024c4556b2c899388df"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd dossier-explorer-wallet-prototype && npm install"
+          }
+        ]
       }  
     ],
   
@@ -157,7 +169,7 @@
     ],
   
   
-    
+  
     "privatesky-clean": [
       {
         "name": "uninstall privatesky",
@@ -188,7 +200,17 @@
             "target": "webcardinal"
           }
         ]
-      }    
+      },
+      {
+        "name": "uninstall themes",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "themes"
+          }
+        ]
+      }     
     ]
   }
   
