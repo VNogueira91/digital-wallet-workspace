@@ -21,6 +21,16 @@
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-pre-build\""
           }
         ]
+      },
+      {
+        "name": "install project dependencies",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run wallet-dependencies\""
+          }
+        ]
       }      
     ],
   
@@ -188,6 +198,20 @@
       }  
     ],
   
+    "wallet-dependencies": [
+      
+      {
+        "name": "wallet-trust-loader",
+        "src": "https://github.com/VNogueira91/digital-trust-loader.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false
+          }
+        ]
+      }
+    ],
   
   
     "build": [
@@ -352,7 +376,7 @@
         "actions": [
           {
             "type": "remove",
-            "target": "apihub-root/dsu-explorer/loader"
+            "target": "apihub-root/dsu-explorer"
           }
         ]
       },
@@ -370,7 +394,4 @@
   }
   
   
-  
-  
-
   

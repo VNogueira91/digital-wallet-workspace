@@ -21,6 +21,16 @@
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-pre-build\""
           }
         ]
+      },
+      {
+        "name": "install project dependencies",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run wallet-dependencies\""
+          }
+        ]
       }      
     ],
   
