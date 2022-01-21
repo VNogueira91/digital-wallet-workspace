@@ -3,12 +3,22 @@
   
     "dependencies": [
       {
-        "name": "privatesky",
+        "name": "install all privatesky",
         "src": ".",
         "actions": [
           {
             "type": "execute",
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-dependencies\""
+          }
+        ]
+      },
+      {
+        "name": "pre build all privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-pre-build\""
           }
         ]
       }      
@@ -96,31 +106,44 @@
             "cmd": "cd dossier-explorer-wallet-prototype && npm install"
           }
         ]
+      },
+      {
+        "name": "apihub-root/dsu-explorer/loader",
+        "src": "https://github.com/PrivateSky/web-dossier-loader.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "2ba38dd623498d2c452812ff855876b8e91e7a2a"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd apihub-root/dsu-explorer/loader && npm install"
+          }
+        ]
+      },
+      {
+        "name": "dossier-explorer-ssapp",
+        "src": "https://github.com/PrivateSky/dossier-explorer-ssapp.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "6e7bed56f5c040908c32c099f5dd2a313fb1652c"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd dossier-explorer-ssapp && npm install"
+          }
+        ]
       }  
     ],
   
-  
-  
-  
-  
-    "build": [
+    "privatesky-pre-build":[
       {
-        "name": "build all privatesky",
-        "src": ".",
-        "actions": [
-          {
-            "type": "execute",
-            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-build\""
-          }
-        ]
-      } 
-    ],
-  
-  
-  
-    "privatesky-build":[
-      {
-        "name": "build privatesky",
+        "name": "pre build privatesky",
         "src": ".",
         "actions": [
           {
@@ -130,7 +153,7 @@
         ]
       },
       {
-        "name": "build cardinal",
+        "name": "pre build cardinal",
         "src": ".",
         "actions": [
           {
@@ -140,7 +163,7 @@
         ]
       },
       {
-        "name": "build webcardinal",
+        "name": "pre build webcardinal",
         "src": ".",
         "actions": [
           {
@@ -148,8 +171,32 @@
             "cmd": "cd webcardinal && npm run bundle-minimal && npm run dev"
           }
         ]
-      }        
+      },
+      {
+        "name": "pre build apihub-root/dsu-explorer/loader",
+        "src": ".",
+        "actions": [
+          {
+            "type": "copy",
+            "src": "apihub-root/dsu-explorer/loader/loader-config.local.json-template",
+            "target": "apihub-root/dsu-explorer/loader/loader-config.local.json",
+            "options": {
+              "overwrite": true
+            }
+          }
+        ]
+      }  
     ],
+  
+  
+  
+    "build": [
+       
+    ],
+  
+  
+  
+  
   
   
   
@@ -210,7 +257,37 @@
             "target": "themes"
           }
         ]
-      }     
+      },
+      {
+        "name": "uninstall dossier-explorer-wallet-prototype",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "dossier-explorer-wallet-prototype"
+          }
+        ]
+      },
+      {
+        "name": "uninstall apihub-root/dsu-explorer/loader",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "apihub-root/dsu-explorer/loader"
+          }
+        ]
+      },
+      {
+        "name": "uninstall dossier-explorer-ssapp",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "dossier-explorer-ssapp"
+          }
+        ]
+      }
     ]
   }
   
