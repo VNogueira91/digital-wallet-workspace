@@ -211,7 +211,7 @@
           },
           {
             "type": "execute",
-            "cmd": "cd wallet-trust-loader && npm install"
+            "cmd": "cd wallet-trust-loader && npm install && npm run prebuild"
           }
         ]
       }
