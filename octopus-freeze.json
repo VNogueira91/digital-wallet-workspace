@@ -389,7 +389,18 @@
             "target": "dossier-explorer-ssapp"
           }
         ]
+      },
+      {
+        "name": "remove bricks",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "apihub-root/external-volume/domains"
+          }
+        ]
       }
+      
     ]
   }
   
