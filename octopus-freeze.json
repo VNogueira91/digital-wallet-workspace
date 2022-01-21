@@ -399,6 +399,16 @@
             "target": "apihub-root/external-volume/domains"
           }
         ]
+      },
+      {
+        "name": "uninstall trust-loader",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "wallet-trust-loader"
+          }
+        ]
       }
       
     ]
