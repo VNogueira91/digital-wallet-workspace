@@ -218,7 +218,7 @@
     ],
   
     
-    
+
     "build": [
       {
         "name": "build all privatesky",
@@ -411,13 +411,15 @@
         "actions": [
           {
             "type": "remove",
-            "target": "wallet-trust-loader"
+            "target": "digital-trust-loader"
           }
         ]
       }
       
     ]
   }
+  
+
   
   
   

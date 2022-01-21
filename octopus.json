@@ -217,7 +217,7 @@
       }
     ],
   
-    
+
   
     "build": [
       {
@@ -411,7 +411,7 @@
         "actions": [
           {
             "type": "remove",
-            "target": "wallet-trust-loader"
+            "target": "digital-trust-loader"
           }
         ]
       }
