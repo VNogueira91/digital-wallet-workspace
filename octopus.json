@@ -1,5 +1,10 @@
 {
     "workDir": ".",
+  
+  
+  
+  
+  
     "dependencies": [
       {
         "name": "privatesky",
@@ -12,6 +17,9 @@
         ]
       }      
     ],
+  
+  
+  
     "privatesky-dependencies": [
       {
         "name": "privatesky",
@@ -60,8 +68,29 @@
             "cmd": "cd webcardinal && npm install"
           }
         ]
+      },
+      {
+        "name": "themes/blue-fluorite-theme",
+        "src": "https://github.com/PrivateSky/blue-fluorite-theme.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "7dfa8dd6bd13239b698e0bd1a71e0aa353e16ba2"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd themes/blue-fluorite-theme && npm install"
+          }
+        ]
       }  
     ],
+  
+  
+  
+  
+  
     "build": [
       {
         "name": "build all privatesky",
@@ -74,6 +103,9 @@
         ]
       } 
     ],
+  
+  
+  
     "privatesky-build":[
       {
         "name": "build privatesky",
@@ -106,6 +138,11 @@
         ]
       }        
     ],
+  
+  
+  
+  
+  
     "clean-dependencies": [
       {
         "name": "uninstall all privatesky",
@@ -118,6 +155,9 @@
         ]
       } 
     ],
+  
+  
+    
     "privatesky-clean": [
       {
         "name": "uninstall privatesky",
@@ -151,3 +191,7 @@
       }    
     ]
   }
+  
+  
+  
+  
