@@ -208,6 +208,10 @@
             "type": "smartClone",
             "target": ".",
             "collectLog": false
+          },
+          {
+            "type": "execute",
+            "cmd": "cd wallet-trust-loader && npm install"
           }
         ]
       }
