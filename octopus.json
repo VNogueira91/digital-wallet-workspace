@@ -1,81 +1,153 @@
 {
-  "workDir": ".",
-  "dependencies": [
-    {
-      "name": "privatesky",
-      "src": ".",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-dependencies\""
-        }
-      ]
-    }      
-  ],
-  "privatesky-dependencies": [
-    {
-      "name": "privatesky",
-      "src": "http://github.com/privatesky/psk-release.git",
-      "actions": [
-        {
-          "type": "smartClone",
-          "target": ".",
-          "collectLog": false
-        },
-        {
-          "type": "execute",
-          "cmd": "cd privatesky && npm install"
-        }
-      ]
-    }  
-  ],
-  "build": [
-    {
-      "name": "build all privatesky",
-      "src": ".",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-build\""
-        }
-      ]
-    } 
-  ],
-  "privatesky-build":[
-    {
-      "name": "build privatesky",
-      "src": ".",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "cd privatesky && npm run build"
-        }
-      ]
-    }     
-  ],
-  "clean-dependencies": [
-    {
-      "name": "uninstall all privatesky",
-      "src": ".",
-      "actions": [
-        {
-          "type": "execute",
-          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-clean\""
-        }
-      ]
-    } 
-  ],
-  "privatesky-clean": [
-    {
-      "name": "uninstall privatesky",
-      "src": ".",
-      "actions": [
-        {
-          "type": "remove",
-          "path": "privatesky"
-        }
-      ]
-    } 
-  ]
-}
-
+    "workDir": ".",
+    "dependencies": [
+      {
+        "name": "privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-dependencies\""
+          }
+        ]
+      }      
+    ],
+    "privatesky-dependencies": [
+      {
+        "name": "privatesky",
+        "src": "http://github.com/privatesky/psk-release.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "b97e3d071de8357a8105b88683b2cd2ef7a25fab"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd privatesky && npm install"
+          }
+        ]
+      },
+      {
+        "name": "cardinal",
+        "src": "http://github.com/privatesky/cardinal.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "f2080909d6780d532225389eefadbbba494d70b4"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd cardinal && npm install"
+          }
+        ]
+      },
+      {
+        "name": "webcardinal",
+        "src": "https://github.com/webcardinal/webcardinal-bundler",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "44036cf46b1209529c642dc7b3b4e7f856908d8b"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd webcardinal && npm install"
+          }
+        ]
+      }  
+    ],
+    "build": [
+      {
+        "name": "build all privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-build\""
+          }
+        ]
+      } 
+    ],
+    "privatesky-build":[
+      {
+        "name": "build privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "cd privatesky && npm run build"
+          }
+        ]
+      },
+      {
+        "name": "build cardinal",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "cd cardinal && npm run build"
+          }
+        ]
+      },
+      {
+        "name": "build webcardinal",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "cd webcardinal && npm run bundle-minimal && npm run dev"
+          }
+        ]
+      }        
+    ],
+    "clean-dependencies": [
+      {
+        "name": "uninstall all privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-clean\""
+          }
+        ]
+      } 
+    ],
+    "privatesky-clean": [
+      {
+        "name": "uninstall privatesky",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "privatesky"
+          }
+        ]
+      },
+      {
+        "name": "uninstall cardinal",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "cardinal"
+          }
+        ]
+      },
+      {
+        "name": "uninstall webcardinal",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "webcardinal"
+          }
+        ]
+      }    
+    ]
+  }
