@@ -43,7 +43,7 @@
   ],
   "privatesky-build":[
     {
-      "name": "privatesky",
+      "name": "build privatesky",
       "src": ".",
       "actions": [
         {
@@ -55,7 +55,7 @@
   ],
   "clean-dependencies": [
     {
-      "name": "privatesky",
+      "name": "uninstall all privatesky",
       "src": ".",
       "actions": [
         {
@@ -67,7 +67,7 @@
   ],
   "privatesky-clean": [
     {
-      "name": "privatesky",
+      "name": "uninstall privatesky",
       "src": ".",
       "actions": [
         {
